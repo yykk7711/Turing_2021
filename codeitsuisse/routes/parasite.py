@@ -32,37 +32,115 @@ def solve(inputValue):
                 continue
 
             q = [(row, col)]
-            t = 0
             visited = [[False for col in range(maxCol)] for row in range(maxRow)]
+            visited[row][col] = True
+
+            prev = [[None for col in range(maxCol)] for row in range(maxRow)]
             reach = False
 
             while len(q) > 0:
                 row, col = q.pop(0)
-                visited[row][col] = True
 
                 # append to q for horizontal and vertical spread
                 if row - 1 in range(0, maxRow):
                     if (l[row - 1][col] == 1 or l[row - 1][col] == 3) and visited[row - 1][col] == False:
                         q.append((row - 1, col))
+                        visited[row - 1][col] = True
+                        prev[row - 1][col] = (row, col)
                 if col - 1 in range(0, maxCol):
                     if (l[row][col - 1] == 1 or l[row][col - 1] == 3) and visited[row][col - 1] == False:
                         q.append((row, col - 1))
+                        visited[row][col - 1] = True
+                        prev[row][col - 1] = (row, col)
                 if col + 1 in range(0, maxCol):
                     if (l[row][col + 1] == 1 or l[row][col + 1] == 3) and visited[row][col + 1] == False:
                         q.append((row, col + 1))
+                        visited[row][col + 1] = True
+                        prev[row][col + 1] = (row, col)
                 if row + 1 in range(0, maxRow):
                     if (l[row + 1][col] == 1 or l[row + 1][col] == 3) and visited[row + 1][col] == False:
                         q.append((row + 1, col))
-                t += 1
+                        visited[row + 1][col] = True
+                        prev[row + 1][col] = (row, col)
 
                 if infected in q:
                     reach = True
                     break
-            if reach:
-                p1[indiv] = t
-            else:
+            temp = infected
+            row, col = indiv.split(',')
+            row, col = int(row), int(col)
+
+            if prev[temp[0]][temp[1]] == None:
                 p1[indiv] = -1
+                continue
+            counter = 0
+            while temp != (row, col):
+                temp = prev[temp[0]][temp[1]]
+                counter += 1
+            p1[indiv] = counter
         output[room["room"] - 1]["p1"] = p1
+
+        # p2
+        healthy = []
+        for row in range(len(l)):
+            for col in range(len(l[0])):
+                if l[row][col] == 1:
+                    healthy.append((row, col))
+        p2 = 0
+        for indiv in healthy:
+            row, col = indiv
+
+            q = [(row, col)]
+            visited = [[False for col in range(maxCol)] for row in range(maxRow)]
+            visited[row][col] = True
+
+            prev = [[None for col in range(maxCol)] for row in range(maxRow)]
+            reach = False
+
+            while len(q) > 0:
+                row, col = q.pop(0)
+
+                # append to q for horizontal and vertical spread
+                if row - 1 in range(0, maxRow):
+                    if (l[row - 1][col] == 1 or l[row - 1][col] == 3) and visited[row - 1][col] == False:
+                        q.append((row - 1, col))
+                        visited[row - 1][col] = True
+                        prev[row - 1][col] = (row, col)
+                if col - 1 in range(0, maxCol):
+                    if (l[row][col - 1] == 1 or l[row][col - 1] == 3) and visited[row][col - 1] == False:
+                        q.append((row, col - 1))
+                        visited[row][col - 1] = True
+                        prev[row][col - 1] = (row, col)
+                if col + 1 in range(0, maxCol):
+                    if (l[row][col + 1] == 1 or l[row][col + 1] == 3) and visited[row][col + 1] == False:
+                        q.append((row, col + 1))
+                        visited[row][col + 1] = True
+                        prev[row][col + 1] = (row, col)
+                if row + 1 in range(0, maxRow):
+                    if (l[row + 1][col] == 1 or l[row + 1][col] == 3) and visited[row + 1][col] == False:
+                        q.append((row + 1, col))
+                        visited[row + 1][col] = True
+                        prev[row + 1][col] = (row, col)
+
+                if infected in q:
+                    reach = True
+                    break
+            temp = infected
+            row, col = indiv
+
+            if prev[temp[0]][temp[1]] == None:
+                continue
+
+            counter = 0
+            while temp != (row, col):
+                temp = prev[temp[0]][temp[1]]
+                counter += 1
+            if counter > p2:
+                p2 = counter
+        output[room["room"] - 1]["p2"] = p2
+
+        for indiv in
+
     return output
 
 
