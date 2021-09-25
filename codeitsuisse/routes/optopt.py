@@ -11,11 +11,11 @@ logger = logging.getLogger(__name__)
 
 def evaluate_optopt():
     data = request.get_json()
-    
+
     options = data.get("options")
     view = data.get("view")
 
     logging.info(options)
     logging.info(view)
 
-    return json.dumps("HI")
+    return json.dumps(100)
