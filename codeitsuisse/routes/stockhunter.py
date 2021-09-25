@@ -20,7 +20,7 @@ def evaluate_stockhunter():
 
     for i in range(inputValue['targetPoint']['first']+1):
         for j in range(inputValue['targetPoint']['second']+1):
-            if i == 0 and j == 0 or (i == inputValue['targetPoint'][0] and j == inputValue['targetPoint'][1]):
+            if i == 0 and j == 0 or (i == inputValue['targetPoint']['first'] and j == inputValue['targetPoint']['second']):
                 riskindex[f"{i}{j}"] = 0
             elif i == 0:
                 riskindex[f"{i}{j}"] = j*inputValue['verticalStepper']
@@ -38,7 +38,7 @@ def evaluate_stockhunter():
             else:
                 riskcost[f"{i}{j}"] = 1
 
-    grid = [[] for i in range(inputValue['targetPoint'][1]+1)]
+    grid = [[] for i in range(inputValue['targetPoint']['second']+1)]
 
     for k,v in riskcost.items():
         if v == 3:
