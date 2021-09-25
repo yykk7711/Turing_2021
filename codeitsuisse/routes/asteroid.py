@@ -75,7 +75,7 @@ def asteroid_solve(d):
 def evaluate():
     data = request.get_json()
     logging.info("data sent for evaluation {}".format(data))
-    inputValue = data.get("input")
+    inputValue = data.get("test_cases")
 
     result = asteroid_solve(inputValue)
 
