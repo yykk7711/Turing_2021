@@ -129,7 +129,8 @@ def solve(inputValue):
             row, col = indiv
 
             if prev[temp[0]][temp[1]] == None:
-                continue
+                p2 = -1
+                break
 
             counter = 0
             while temp != (row, col):
@@ -169,7 +170,8 @@ def solve(inputValue):
             row, col = indiv
 
             if prev[temp[0]][temp[1]] == None:
-                continue
+                p3 = -1
+                break
 
             counter = 0
             while temp != (row, col):
