@@ -18,4 +18,6 @@ def evaluate_decoder():
 
 
     # logging.info("My result :{}".format("HI"))
-    return json.dumps("HI")
+    ans = {"answer" : ["a", "b", "d", "c"]}
+
+    return json.dumps(ans)
