@@ -14,7 +14,7 @@ def evaluate_parasite():
     print("data is "+format(inputValue))
     logging.info("data sent for evaluation {}".format(inputValue))
 
-    output = [{} for _ in range(len(inputValue))]
+    output = [{"room": i + 1} for i in range(len(inputValue))]
     for room in inputValue:
         l = room["grid"]
 
