@@ -140,6 +140,45 @@ def solve(inputValue):
         output[room["room"] - 1]["p2"] = p2
 
         # p3
+        p3 = -1
+        for indiv in healthy:
+            row, col = indiv
+
+            q = [(row, col)]
+            visited = [[False for col in range(maxCol)] for row in range(maxRow)]
+            visited[row][col] = True
+
+            prev = [[None for col in range(maxCol)] for row in range(maxRow)]
+            reach = False
+
+            while len(q) > 0:
+                row, col = q.pop(0)
+
+                for i in range(-1, 2):
+                    for j in range(-1, 2):
+                        if i != j and row + i in range(0, maxRow) and col + j in range(0, maxCol):
+                            if (l[row + i][col + j] == 1 or l[row + i][col + j] == 3) and visited[row + i][col + j] == False:
+                                q.append(row + i, col + j)
+                                visited[row + i][col + j] = True
+                                prev[row + i][col + j] = (row, col)
+
+                if infected in q:
+                    reach = True
+                    break
+            temp = infected
+            row, col = indiv
+
+            if prev[temp[0]][temp[1]] == None:
+                continue
+
+            counter = 0
+            while temp != (row, col):
+                temp = prev[temp[0]][temp[1]]
+                counter += 1
+            if counter > p3:
+                p3 = counter
+        output[room["room"] - 1]["p3"] = p3
+
 
 
     return output
