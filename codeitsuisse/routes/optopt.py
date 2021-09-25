@@ -9,13 +9,13 @@ logger = logging.getLogger(__name__)
 
 @app.route('/optopt', methods=['POST'])
 
-def evaluate():
+def evaluate_optopt():
     data = request.get_json()
-    logging.info("data sent for evaluation {}".format(data))
-    inputValue = data.get("input")
-
-    result = inputValue * inputValue
-
-    logging.info("My result :{}".format(result))
     
-    return json.dumps(result)
+    options = data.get("options")
+    view = data.get("view")
+
+    logging.info(options)
+    logging.info(view)
+
+    return json.dumps("HI")
