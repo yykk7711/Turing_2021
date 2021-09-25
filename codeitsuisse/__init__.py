@@ -6,8 +6,6 @@ import codeitsuisse.routes.parasite
 import codeitsuisse.routes.asteroid
 import codeitsuisse.routes.fixedrace
 import codeitsuisse.routes.decoder
-<<<<<<< HEAD
 import codeitsuisse.routes.stockhunter
-=======
 import codeitsuisse.routes.optopt
->>>>>>> a5876e8ebeaf9f04fd9f0518ce5d3294eb13fd97
+import codeitsuisse.routes.tic_tac_toe
