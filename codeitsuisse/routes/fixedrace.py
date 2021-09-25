@@ -8,7 +8,7 @@ from codeitsuisse import app
 
 logger = logging.getLogger(__name__)
 
-@app.route('/square', methods=['POST'])
+@app.route('/fixedrace', methods=['POST'])
 
 def evaluateFixedrace():
     data = request.get_json()
