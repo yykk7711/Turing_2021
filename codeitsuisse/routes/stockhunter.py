@@ -18,8 +18,8 @@ def evaluate_stockhunter():
     risklevel = dict()
     riskcost = dict()
 
-    for i in range(inputValue['targetPoint'][0]+1):
-        for j in range(inputValue['targetPoint'][1]+1):
+    for i in range(inputValue['targetPoint']['first']+1):
+        for j in range(inputValue['targetPoint']['second']+1):
             if i == 0 and j == 0 or (i == inputValue['targetPoint'][0] and j == inputValue['targetPoint'][1]):
                 riskindex[f"{i}{j}"] = 0
             elif i == 0:
