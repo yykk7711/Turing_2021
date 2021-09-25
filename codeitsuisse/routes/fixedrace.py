@@ -11,11 +11,10 @@ logger = logging.getLogger(__name__)
 @app.route('/fixedrace', methods=['POST'])
 
 def evaluateFixedrace():
-    data = request.get_json()
-    logging.info("data sent for evaluation {}".format(data))
-    inputValue = data.get("input")
-
-    l = inputValue.split(',')
+    inputValue = request.get_data()
+    print(inputValue)
+    logging.info("data sent for evaluation {}".format(inputValue))
+    l = inputValue.split(",")
     l = random.shuffle(l)
 
     s = l[0]
@@ -26,4 +25,4 @@ def evaluateFixedrace():
 
     logging.info("My result :{}".format(result))
     logging.info(json.dumps(result))
-    return json.dumps(result)
+    return None
