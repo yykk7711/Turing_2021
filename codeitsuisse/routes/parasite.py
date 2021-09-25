@@ -7,7 +7,9 @@ from codeitsuisse import app
 
 logger = logging.getLogger(__name__)
 
-def solve(inputValue):
+@app.route('/parasite', methods=['POST'])
+
+def parasite_solve(inputValue):
     output = [{} for _ in range(len(inputValue))]
     for room in inputValue:
         l = room["grid"]
@@ -185,14 +187,13 @@ def solve(inputValue):
 
     return output
 
-
-@app.route('/parasite', methods=['POST'])
 def evaluate():
     data = request.get_json()
+    print("data is "+format(data))
     logging.info("data sent for evaluation {}".format(data))
     inputValue = data.get("input")
 
-    result = solve(inputValue)
+    result = parasite_solve(inputValue)
 
     logging.info("My result :{}".format(result))
     return json.dumps(result)
