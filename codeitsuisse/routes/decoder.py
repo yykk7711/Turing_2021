@@ -11,11 +11,11 @@ logger = logging.getLogger(__name__)
 
 def evaluate_decoder():
     data = request.get_json()
-    logging.info("data sent for evaluation {}".format(data))
-    # logging.info(data.get("possible_values"))
-    # logging.info(data.get("num_slots"))
-    # logging.info(data.get("history"))
+    # logging.info("data sent for evaluation {}".format(data))
+    logging.info(data.get("possible_values"))
+    logging.info(data.get("num_slots"))
+    logging.info(data.get("history"))
 
 
-    logging.info("My result :{}".format(output))
-    return json.dumps('hi')
+    # logging.info("My result :{}".format("HI"))
+    return json.dumps("HI")
