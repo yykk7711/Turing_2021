@@ -9,7 +9,11 @@ logger = logging.getLogger(__name__)
 
 @app.route('/parasite', methods=['POST'])
 
-def parasite_solve(inputValue):
+def evaluate_parasite():
+    inputValue = request.get_json()
+    print("data is "+format(inputValue))
+    logging.info("data sent for evaluation {}".format(inputValue))
+
     output = [{} for _ in range(len(inputValue))]
     for room in inputValue:
         l = room["grid"]
@@ -161,7 +165,7 @@ def parasite_solve(inputValue):
                     for j in range(-1, 2):
                         if i != j and row + i in range(0, maxRow) and col + j in range(0, maxCol):
                             if (l[row + i][col + j] == 1 or l[row + i][col + j] == 3) and visited[row + i][col + j] == False:
-                                q.append(row + i, col + j)
+                                q.append((row + i, col + j))
                                 visited[row + i][col + j] = True
                                 prev[row + i][col + j] = (row, col)
 
@@ -183,17 +187,5 @@ def parasite_solve(inputValue):
                 p3 = counter
         output[room["room"] - 1]["p3"] = p3
 
-
-
-    return output
-
-def evaluate_parasite():
-    data = request.get_json()
-    print("data is "+format(data))
-    logging.info("data sent for evaluation {}".format(data))
-    inputValue = data.get("input")
-
-    result = parasite_solve(inputValue)
-
-    logging.info("My result :{}".format(result))
-    return json.dumps(result)
+    logging.info("My result :{}".format(output))
+    return json.dumps(output)
