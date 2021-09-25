@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 
 def asteroid_solve(d):
 
-    ls = d['test_cases']
+    ls = d
     ans = []
 
     for s in ls:
@@ -74,6 +74,7 @@ def asteroid_solve(d):
 
 def evaluate():
     data = request.get_json()
+
     logging.info("data sent for evaluation {}".format(data))
     inputValue = data.get("test_cases")
 
