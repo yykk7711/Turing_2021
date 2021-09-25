@@ -18,4 +18,4 @@ def evaluate_optopt():
     logging.info(options)
     logging.info(view)
 
-    return json.dumps(100)
+    return json.dumps([100])
