@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 
 @app.route('/asteroid', methods=['POST'])
 
-def solve(d):
+def asteroid_solve(d):
 
     ls = d['test_cases']
     ans = []
@@ -77,7 +77,7 @@ def evaluate():
     logging.info("data sent for evaluation {}".format(data))
     inputValue = data.get("input")
 
-    result = solve(inputValue)
+    result = asteroid_solve(inputValue)
 
     logging.info("My result :{}".format(result))
     return json.dumps(result)
