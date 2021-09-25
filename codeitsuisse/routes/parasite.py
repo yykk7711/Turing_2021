@@ -86,7 +86,7 @@ def solve(inputValue):
             for col in range(len(l[0])):
                 if l[row][col] == 1:
                     healthy.append((row, col))
-        p2 = 0
+        p2 = -1
         for indiv in healthy:
             row, col = indiv
 
@@ -139,7 +139,8 @@ def solve(inputValue):
                 p2 = counter
         output[room["room"] - 1]["p2"] = p2
 
-        for indiv in
+        # p3
+
 
     return output
 
