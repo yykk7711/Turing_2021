@@ -22,6 +22,8 @@ def evaluate_decoder():
     # 's', 'k', 'f', 'e', 'l', 't', 'a'
     # 19:22
     # 's', 'r', 'm', 'v', 'y', 'c', 'u'
-    ans = {"answer" : ["r", "y", "m", "c", "s"]}
+
+    # 19:27 # 19:29
+    ans = {"answer" : ["r", "u", "v", "c", "s"]}
 
     return json.dumps(ans)
