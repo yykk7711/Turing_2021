@@ -7,6 +7,9 @@ from codeitsuisse import app
 
 logger = logging.getLogger(__name__)
 
+
+@app.route('/asteroid', methods=['POST'])
+
 def solve(d):
 
     ls = d['test_cases']
@@ -50,12 +53,12 @@ def solve(d):
                         elif length >= 7:
                             score += length*1.5
                         else:
-                            score += length   
+                            score += length
 
 
                         if right > len(s)-1 or left < 0:
-                            break            
-                        
+                            break
+
                         print(score)
                         print()
 
@@ -69,12 +72,11 @@ def solve(d):
 
     return ans
 
-@app.route('/asteroid', methods=['POST'])
 def evaluate():
     data = request.get_json()
     logging.info("data sent for evaluation {}".format(data))
     inputValue = data.get("input")
-    
+
     result = solve(inputValue)
 
     logging.info("My result :{}".format(result))
