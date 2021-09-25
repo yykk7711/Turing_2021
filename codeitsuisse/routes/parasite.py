@@ -66,7 +66,7 @@ def solve(inputValue):
     return output
 
 
-@app.route('/square', methods=['POST'])
+@app.route('/parasite', methods=['POST'])
 def evaluate():
     data = request.get_json()
     logging.info("data sent for evaluation {}".format(data))
