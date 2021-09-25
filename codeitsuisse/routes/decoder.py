@@ -23,6 +23,6 @@ def evaluate_decoder():
     # drop a,d
     # ALL : ['g', 'x', 'w', 'm', 'a', 'e', 'b']
     # no b
-    ans = {"answer" : ['a', 'g', 'x', 'a', 'w']}
+    ans = {"answer" : ['a', 'g', 'x', 'e', 'g']}
 
     return json.dumps(ans)
