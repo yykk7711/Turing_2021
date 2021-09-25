@@ -72,7 +72,7 @@ def asteroid_solve(d):
 
     return ans
 
-def evaluate():
+def evaluate_asteroid():
     data = request.get_json()
 
     logging.info("data sent for evaluation {}".format(data))

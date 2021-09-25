@@ -185,7 +185,7 @@ def parasite_solve(inputValue):
 
     return output
 
-def evaluate():
+def evaluate_parasite():
     data = request.get_json()
     print("data is "+format(data))
     logging.info("data sent for evaluation {}".format(data))
