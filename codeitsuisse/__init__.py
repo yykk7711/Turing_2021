@@ -6,3 +6,4 @@ import codeitsuisse.routes.asteroid
 import codeitsuisse.routes.fixedrace
 import codeitsuisse.routes.decoder
 import codeitsuisse.routes.optopt
+import codeitsuisse.routes.tic_tac_toe
