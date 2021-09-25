@@ -16,7 +16,13 @@ def evaluateFixedrace():
     inputValue = data.get("input")
 
     l = inputValue.split(',')
-    result = random.shuffle(l)
+    l = random.shuffle(l)
+
+    s = l[0]
+    for i in range(1, 10):
+        s += ','
+        s += l[i]
+    result = s
 
     logging.info("My result :{}".format(result))
     logging.info(json.dumps(result))
